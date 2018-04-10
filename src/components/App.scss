@@ -1,0 +1,18 @@
+@import 'Normalize';
+@import 'Fonts';
+@import 'Variables';
+@import 'Grid';
+
+body {
+  font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width: $default-wrapper-width;
+  margin-left: (-$default-wrapper-width / 2);
+}
