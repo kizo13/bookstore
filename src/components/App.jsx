@@ -10,6 +10,10 @@ import { history } from 'store/store';
 
 import './App.scss';
 
+import SearchInput from './search/SearchInput';
+import SearchResult from './search/SearchResult';
+import CartIndicator from './cart/CartIndicator';
+
 const NoMatch = ({ location }) => (
   <div>
     <h3>No match for <code>{location.pathname}</code></h3>
@@ -24,13 +28,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">LogMeIn</div>
+      <div className="container">
+        <SearchInput />
+        <CartIndicator />
+        <SearchResult />
+      </div>
     );
   }
 
 }
 
-// mapStateToProps = (state) => ({
+// const mapStateToProps = (state) => ({
 //   app: state.app,
 // });
 
