@@ -15,7 +15,7 @@ const actions = {
     return (dispatch) => {
       dispatch({ type: ApiTypeKeys.FETCH_BOOKS_ISLOADING, payload: true });
 
-      axios.get(`${API_URL}?q="${query}"`)
+      axios.get(`${API_URL}?q="${query}"&maxResults=40&printType=books`)
         .then(items => dispatch({ type: ApiTypeKeys.FETCH_BOOKS, payload: items.data }))
         .catch((err) => {
           console.info(err);
