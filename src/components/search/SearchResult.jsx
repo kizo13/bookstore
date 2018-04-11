@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 // import { Dispatch } from 'redux';
 import { withRouter } from 'react-router-dom';
 
+import SearchResultItem from './SearchResultItem';
 import './SearchResult.scss';
 
 class SearchResult extends React.Component {
@@ -18,8 +19,7 @@ class SearchResult extends React.Component {
             <h3>Search results for '{this.props.form.query}' <small>({this.props.api.autocomplete.data.totalItems} item(s) found)</small></h3>
             <ul className="books">
               {this.props.api.autocomplete.data.items.map(book =>
-                // <DeskCategoryCard key={category.id} {...category} />,
-                <li key={book.id}>{book.volumeInfo.title}</li>
+                <SearchResultItem key={book.id} title={book.volumeInfo.title} />,  // <SearchResultItem key={book.id} {...category} />,
               )}
             </ul>
           </React.Fragment>
