@@ -16,10 +16,10 @@ class SearchResult extends React.Component {
       <div className="result">
         {this.props.api.autocomplete.data ? (
           <React.Fragment>
-            <h3>Search results for '{this.props.form.query}' <small>({this.props.api.autocomplete.data.totalItems} item(s) found)</small></h3>
+            <h3>Search results for <b>'{this.props.form.query}'</b> <small>({this.props.api.autocomplete.data.totalItems} item(s) found)</small></h3>
             <ul className="books">
               {this.props.api.autocomplete.data.items.map(book =>
-                <SearchResultItem key={book.id} title={book.volumeInfo.title} />,  // <SearchResultItem key={book.id} {...category} />,
+                <SearchResultItem key={book.id} book={book} />,
               )}
             </ul>
           </React.Fragment>
@@ -27,30 +27,6 @@ class SearchResult extends React.Component {
           <span>Nothing to display</span>
         )}
       </div>
-
-      /**
-      result {
-        totalItems: number,
-        items: [
-          {
-            id: string,
-            volumeInfo: {
-              authors: string[],
-              description: string,
-              imageLinks: {
-                smallThumbnail: string,
-                thumbnail: string
-              },
-              language: string,
-              pageCount: number,
-              publishedDate: string,
-              publisher: string,
-              title: string
-            }
-          }
-        ]
-      }
-       */
     );
   }
 }
