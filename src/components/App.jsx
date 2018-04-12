@@ -1,12 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { RouteComponentProps } from 'react-router';
-import { withRouter, Switch, Route, NavLink } from 'react-router-dom';
-import * as classNames from 'classnames';
-import { history } from 'store/store';
-
-// import appActions from 'actions/app.actions';
+import { withRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './home/Home';
 import Cart from './cart/CartContent';

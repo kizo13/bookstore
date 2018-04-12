@@ -6,11 +6,14 @@ const initialLoggedInUser = {
 
 const appReducer = (state = initialLoggedInUser, action) => {
   switch (action.type) {
+    case AppTypeKeys.SET_CART_FROM_STORAGE:
+      return Object.assign({}, state, { cart: action.payload });
+
     case AppTypeKeys.ADD_TO_BASKET:
       if (state.cart.indexOf(action.payload) === -1) {
         return Object.assign({}, state, { cart: [...state.cart, action.payload] });
       }
-      return state
+      return state;
 
     case AppTypeKeys.REMOVE_FROM_BASKET:
       const itemIndex = state.cart.indexOf(action.payload);

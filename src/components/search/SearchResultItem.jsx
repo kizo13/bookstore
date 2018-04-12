@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-// import { Dispatch } from 'redux';
 import { withRouter } from 'react-router-dom';
 import appActions from '../../actions/app.actions';
 
@@ -47,7 +46,7 @@ class SearchResultItem extends React.Component {
         {/* <img src={this.props.book.volumeInfo.imageLinks.smallThumbnail} height="40" /> */}
         <span className="title">{this.props.book.volumeInfo.title} <small>({this.props.book.volumeInfo.publishedDate})</small></span>
         {this.props.book.volumeInfo.authors && (<span className="author">by <i>{this.props.book.volumeInfo.authors.join(', ')}</i></span>)}
-        <span className="publisher">{this.props.book.volumeInfo.publisher}</span>
+        {this.props.book.volumeInfo.publisher && <span className="publisher">{this.props.book.volumeInfo.publisher}</span>}
         {this.props.book.volumeInfo.pageCount && <span className="pagecount">{this.props.book.volumeInfo.pageCount} pages</span>}
         {!this.isBookAddedToCart && <button className="button button-outline" onClick={this.addToCart.bind(this, this.props.book.id)}>Add to cart</button>}
         {this.isBookAddedToCart && <button className="button button-outline" onClick={this.removeFromCart.bind(this, this.props.book.id)}>Remove from cart</button>}
