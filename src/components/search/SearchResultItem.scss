@@ -1,13 +1,40 @@
 li.result-item {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 10px;
+  margin-bottom: 10px;
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
 
   .title {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
     display: block;
     margin-bottom: 5px;
+    color: #9b4dca;
+
+    small {
+      font-size: 12px;
+      font-weight: normal;
+    }
   }
 
   .author {
     display: block;
     margin-bottom: 5px;
+  }
+
+  .publisher,
+  .pagecount {
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .button {
+    display: block;
+    margin-top: 5px;
   }
 }
