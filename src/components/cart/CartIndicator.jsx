@@ -20,7 +20,7 @@ class CartIndicator extends React.Component {
   render() {
     return (
       <div className="cart-indicator">
-      <Link to="/cart" className="link">Cart ({this.props.app.cart.length})</Link>
+        <Link to="/cart" className="link">Cart ({this.props.app.cart.length})</Link>
       </div>
     );
   }

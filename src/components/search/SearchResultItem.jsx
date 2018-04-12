@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import appActions from '../../actions/app.actions';
 
 import './SearchResultItem.scss';
@@ -44,7 +44,7 @@ class SearchResultItem extends React.Component {
        */
       <li className="result-item">
         {/* <img src={this.props.book.volumeInfo.imageLinks.smallThumbnail} height="40" /> */}
-        <span className="title">{this.props.book.volumeInfo.title} <small>({this.props.book.volumeInfo.publishedDate})</small></span>
+        <span className="title"><Link to={`/books/${this.props.book.id}`} className="link">{this.props.book.volumeInfo.title}</Link> <small>({this.props.book.volumeInfo.publishedDate})</small></span>
         {this.props.book.volumeInfo.authors && (<span className="author">by <i>{this.props.book.volumeInfo.authors.join(', ')}</i></span>)}
         {this.props.book.volumeInfo.publisher && <span className="publisher">{this.props.book.volumeInfo.publisher}</span>}
         {this.props.book.volumeInfo.pageCount && <span className="pagecount">{this.props.book.volumeInfo.pageCount} pages</span>}
