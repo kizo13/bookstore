@@ -12,22 +12,18 @@ class SearchResult extends React.Component {
 
   render() {
     return (
-      <div className="row result">
-        <div className="column">
-          {this.props.api.autocomplete.data ? (
-            <React.Fragment>
-              <h3>Search results for <b>'{this.props.form.query}'</b> <small>({this.props.api.autocomplete.data.totalItems} item(s) found)</small></h3>
+      <React.Fragment>
+        {this.props.api.autocomplete.data && (
+          <div className="result">
+              {/* <h3>Search results for <b>'{this.props.form.query}'</b> <small>({this.props.api.autocomplete.data.totalItems} item(s) found)</small></h3> */}
               <ul className="books">
                 {this.props.api.autocomplete.data.items.map(book =>
                   <SearchResultItem key={book.id} book={book} />,
                 )}
               </ul>
-            </React.Fragment>
-          ) : (
-            <span>Nothing to display</span>
-          )}
-        </div>
-      </div>
+          </div>
+        )}
+      </React.Fragment>
     );
   }
 }

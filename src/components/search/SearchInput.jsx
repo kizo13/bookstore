@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import formActions from '../../actions/form.actions';
 
+import SearchResult from './SearchResult';
 import './SearchInput.scss';
 
 class SearchInput extends React.Component {
@@ -21,7 +22,8 @@ class SearchInput extends React.Component {
           onChange={this.changeQuery.bind(this)}
           autoCorrect="off"
           autoCapitalize="off" />
-
+        {}
+        <SearchResult />
       </div>
     );
   }
