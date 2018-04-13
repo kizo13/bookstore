@@ -9,32 +9,24 @@ li.result-item {
   }
 
   .title {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 14px;
     display: block;
     margin-bottom: 5px;
     color: #9b4dca;
 
-    small {
-      font-size: 12px;
+    .author {
+      margin-left: 5px;
+      color: #606c76;
       font-weight: normal;
+      font-size: 11px;
     }
   }
 
-  .author {
-    display: block;
-    margin-bottom: 5px;
-  }
-
+  .published-date,
   .publisher,
   .pagecount {
-    font-size: 12px;
-    margin-right: 10px;
-  }
-
-  .button {
-    display: block;
-    margin-top: 5px;
+    font-size: 11px;
   }
 }
