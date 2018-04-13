@@ -22,7 +22,7 @@ class SearchInput extends React.Component {
           onChange={this.changeQuery.bind(this)}
           autoCorrect="off"
           autoCapitalize="off"
-          autocomplete="off" />
+          autoComplete="off" />
 
         <SearchResult />
       </div>

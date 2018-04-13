@@ -10,13 +10,13 @@ const appReducer = (state = initialLoggedInUser, action) => {
       return Object.assign({}, state, { cart: action.payload });
 
     case AppTypeKeys.ADD_TO_BASKET:
-      if (state.cart.indexOf(action.payload) === -1) {
-        return Object.assign({}, state, { cart: [...state.cart, action.payload] });
+      if (state.cart.some(book => book.id === action.payload.id)) {
+        return state;
       }
-      return state;
+      return Object.assign({}, state, { cart: [...state.cart, action.payload] });
 
     case AppTypeKeys.REMOVE_FROM_BASKET:
-      const itemIndex = state.cart.indexOf(action.payload);
+      const itemIndex = state.cart.findIndex(book => book.id === action.payload);
       if (itemIndex > -1) {
         state.cart.splice(itemIndex, 1);
       }

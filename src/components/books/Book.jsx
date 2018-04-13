@@ -15,11 +15,11 @@ class Book extends React.Component {
 
   componentWillMount() {
     this.props.getBookById(this.props.match.params.bookid);
-    this.isBookAddedToCart = this.props.app.cart.indexOf(this.props.match.params.bookid) === -1 ? false : true;
+    this.isBookAddedToCart = this.props.app.cart.findIndex(book => book.id === this.props.match.params.bookid) === -1 ? false : true;
   }
 
   componentWillReceiveProps(nextProps) {
-    this.isBookAddedToCart = nextProps.app.cart.indexOf(this.props.match.params.bookid) === -1 ? false : true;
+    this.isBookAddedToCart = nextProps.app.cart.findIndex(book => book.id === this.props.match.params.bookid) === -1 ? false : true;
   }
 
   render() {
@@ -38,9 +38,9 @@ class Book extends React.Component {
                     <h3 className="title">{this.props.api.books.data.volumeInfo.title} <small>({this.props.api.books.data.volumeInfo.publishedDate})</small></h3>
                     {this.props.api.books.data.volumeInfo.authors && (<div className="author">by <i>{this.props.api.books.data.volumeInfo.authors.join(', ')}</i></div>)}
                     {this.props.api.books.data.volumeInfo.publisher && <span className="publisher">{this.props.api.books.data.volumeInfo.publisher}</span>}
-                    {this.props.api.books.data.volumeInfo.pageCount && <span className="pagecount">{this.props.api.books.data.volumeInfo.printedPageCount} pages</span>}
+                    {this.props.api.books.data.volumeInfo.printedPageCount && <span className="pagecount">{this.props.api.books.data.volumeInfo.printedPageCount} pages</span>}
                     {this.props.api.books.data.volumeInfo.description && <div className="description" dangerouslySetInnerHTML={{__html: this.props.api.books.data.volumeInfo.description}}></div>}
-                    {!this.isBookAddedToCart && <button className="button button-outline" onClick={this.addToCart.bind(this, this.props.api.books.data.id)}><i className="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>}
+                    {!this.isBookAddedToCart && <button className="button button-outline" onClick={this.addToCart.bind(this, this.props.api.books.data)}><i className="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>}
                     {this.isBookAddedToCart && <button className="button" onClick={this.removeFromCart.bind(this, this.props.api.books.data.id)}><i className="fa fa-shopping-cart" aria-hidden="true"></i> Remove from cart</button>}
                   </div>
                 </div>
@@ -53,8 +53,16 @@ class Book extends React.Component {
     );
   }
 
-  addToCart(bookId) {
-    this.props.addToCart(bookId);
+  addToCart(book) {
+    const bookData = {
+      id: book.id,
+      title: book.volumeInfo.title,
+      published: book.volumeInfo.publishedDate,
+      author: book.volumeInfo.authors,
+      publisher: book.volumeInfo.publisher,
+      pageCount: book.volumeInfo.printedPageCount
+    }
+    this.props.addToCart(bookData);
   }
 
   removeFromCart(bookId) {

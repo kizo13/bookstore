@@ -13,29 +13,31 @@ const actions = {
       });
     };
   },
-  addToCart: (bookId) => {
+  addToCart: (bookData) => {
     return (dispatch) => {
-      let storedBookIds = localStorage.getItem('bookstore_bookids');
-      storedBookIds = storedBookIds ? JSON.parse(storedBookIds) : [];
-      if (storedBookIds.indexOf(bookId) === -1) {
-        storedBookIds.push(bookId);
-        localStorage.setItem('bookstore_bookids', JSON.stringify(storedBookIds));
+      let storedBooks = localStorage.getItem('bookstore_bookids');
+      storedBooks = storedBooks ? JSON.parse(storedBooks) : [];
+
+      const isBookAlreadyAdded = storedBooks.some(storedBook => storedBook.id === bookData.id);
+      if (!isBookAlreadyAdded) {
+        storedBooks.push(bookData);
+        localStorage.setItem('bookstore_bookids', JSON.stringify(storedBooks));
       }
 
       dispatch({
         type: AppTypeKeys.ADD_TO_BASKET,
-        payload: bookId,
+        payload: bookData,
       });
     };
   },
   removeFromCart: (bookId) => {
     return (dispatch) => {
-      let storedBookIds = localStorage.getItem('bookstore_bookids');
-      storedBookIds = storedBookIds ? JSON.parse(storedBookIds) : [];
-      const storedIndex = storedBookIds.indexOf(bookId);
+      let storedBooks = localStorage.getItem('bookstore_bookids');
+      storedBooks = storedBooks ? JSON.parse(storedBooks) : [];
+      const storedIndex = storedBooks.findIndex(book => book.id === bookId);
       if (storedIndex > -1) {
-        storedBookIds.splice(storedIndex, 1);
-        localStorage.setItem('bookstore_bookids', JSON.stringify(storedBookIds));
+        storedBooks.splice(storedIndex, 1);
+        localStorage.setItem('bookstore_bookids', JSON.stringify(storedBooks));
       }
 
       dispatch({

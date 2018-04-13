@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import apiActions from '../../actions/api.actions';
 
+import CartContentItem from './CartContentItem';
 import './CartContent.scss';
 
 class CartContent extends React.Component {
@@ -13,22 +15,31 @@ class CartContent extends React.Component {
     return (
       <div className="row">
         <div className="column">
-          <div className="cart">Cart content</div>
+        {this.props.app.cart && (
+          <ul className="cart-items">
+            {this.props.app.cart.length === 0 ? (
+              <span>Your cart is empty</span>
+            ) : (
+              this.props.app.cart.map(book =>
+                <CartContentItem key={book.id} book={book} />,
+              )
+            )}
+          </ul>
+        )}
         </div>
       </div>
     );
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   app: state.app,
-// });
+const mapStateToProps = (state) => ({
+  app: state.app,
+});
 
-// const mapDispatchToProps = (dispatch: Dispatch<DeskCategoriesProps>) => {
+// const mapDispatchToProps = (dispatch) => {
 //   return {
-//     getNovelCategories: () => dispatch(apiActions.getNovelCategories()),
-//     setBackgroundImage: (imageName: string) => dispatch(appActions.setBackgroundImage(imageName)),
+//     getBookById: (bookId) => dispatch(apiActions.getBookById(bookId)),
 //   };
 // };
 
-export default withRouter(connect()(CartContent));
+export default withRouter(connect(mapStateToProps)(CartContent));
