@@ -28,7 +28,7 @@ const autocomplete = (state = initialApiState.autocomplete, action) => {
 const books = (state = initialApiState.books, action) => {
   switch (action.type) {
     case ApiTypeKeys.FETCH_BOOK_BY_ID:
-      return Object.assign({}, state, { data: [...state.books, action.payload] });
+      return Object.assign({}, state, { data: action.payload });
 
     case ApiTypeKeys.FETCH_BOOK_BY_ID_ISLOADING:
       return Object.assign({}, state, { isLoading: action.payload });

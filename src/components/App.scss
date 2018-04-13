@@ -9,10 +9,6 @@ body {
   line-height: 18px;
 }
 
-.wrapper {
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  width: $default-wrapper-width;
-  margin-left: (-$default-wrapper-width / 2);
+.container {
+  margin-top: 10px;
 }

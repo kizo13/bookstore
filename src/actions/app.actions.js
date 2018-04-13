@@ -17,8 +17,10 @@ const actions = {
     return (dispatch) => {
       let storedBookIds = localStorage.getItem('bookstore_bookids');
       storedBookIds = storedBookIds ? JSON.parse(storedBookIds) : [];
-      storedBookIds.push(bookId);
-      localStorage.setItem('bookstore_bookids', JSON.stringify(storedBookIds));
+      if (storedBookIds.indexOf(bookId) === -1) {
+        storedBookIds.push(bookId);
+        localStorage.setItem('bookstore_bookids', JSON.stringify(storedBookIds));
+      }
 
       dispatch({
         type: AppTypeKeys.ADD_TO_BASKET,

@@ -11,7 +11,11 @@ class CartContent extends React.Component {
 
   render() {
     return (
-      <div className="cart">Cart content</div>
+      <div className="row">
+        <div className="column">
+          <div className="cart">Cart content</div>
+        </div>
+      </div>
     );
   }
 }
