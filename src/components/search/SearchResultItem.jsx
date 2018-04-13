@@ -36,7 +36,7 @@ class SearchResultItem extends React.Component {
         <span className="title"><Link to={`/books/${this.props.book.id}`} className="link">{this.props.book.volumeInfo.title}</Link> <small>({this.props.book.volumeInfo.publishedDate})</small></span>
         {this.props.book.volumeInfo.authors && (<span className="author">by <i>{this.props.book.volumeInfo.authors.join(', ')}</i></span>)}
         {this.props.book.volumeInfo.publisher && <span className="publisher">{this.props.book.volumeInfo.publisher}</span>}
-        {this.props.book.volumeInfo.pageCount && <span className="pagecount">{this.props.book.volumeInfo.printedPageCount} pages</span>}
+        {this.props.book.volumeInfo.pageCount && <span className="pagecount">{this.props.book.volumeInfo.pageCount} pages</span>}
       </li>
     );
   }

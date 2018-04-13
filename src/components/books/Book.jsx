@@ -58,9 +58,9 @@ class Book extends React.Component {
       id: book.id,
       title: book.volumeInfo.title,
       published: book.volumeInfo.publishedDate,
-      author: book.volumeInfo.authors,
+      authors: book.volumeInfo.authors,
       publisher: book.volumeInfo.publisher,
-      pageCount: book.volumeInfo.printedPageCount
+      pageCount: book.volumeInfo.pageCount
     }
     this.props.addToCart(bookData);
   }

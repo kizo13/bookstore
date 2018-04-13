@@ -11,7 +11,12 @@ class CartContentItem extends React.Component {
 
   render() {
     return (
-      <div>{this.props.book.title}</div>
+      <div className="cart-item">
+        <div>{this.props.book.title} <small>({this.props.book.published})</small></div>
+        <div>by <i>{this.props.book.authors.join(', ')}</i></div>
+        <div>{this.props.book.publisher}</div>
+        <div>{this.props.book.pageCount} pages</div>
+      </div>
     );
   }
 }
