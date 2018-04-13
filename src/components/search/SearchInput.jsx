@@ -21,8 +21,9 @@ class SearchInput extends React.Component {
           placeholder="Search book"
           onChange={this.changeQuery.bind(this)}
           autoCorrect="off"
-          autoCapitalize="off" />
-        {}
+          autoCapitalize="off"
+          autocomplete="off" />
+
         <SearchResult />
       </div>
     );
