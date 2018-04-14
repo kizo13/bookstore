@@ -18,11 +18,22 @@ body {
   position: relative;
 }
 
-.loader {
+.loader,
+.empty-cart {
   position: fixed;
   top: 80px;
   right: 0;
   bottom: 0;
   left: 0;
-  background: #fff svg('loader', '#9b4dca') no-repeat center center;
+}
+
+.loader {
+  background: #fff svg('loader') no-repeat center 50px;
+}
+
+.empty-cart {
+  background: #fff svg('emptycart') no-repeat center 50px;
+  background-size: 300px;
+  text-align: center;
+  font-size: 32px;
 }

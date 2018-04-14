@@ -18,7 +18,7 @@ class CartContent extends React.Component {
         {this.props.app.cart && (
           <ul className="cart-items">
             {this.props.app.cart.length === 0 ? (
-              <span>Your cart is empty</span>
+              <span className="empty-cart">Your cart is empty :(</span>
             ) : (
               this.props.app.cart.map(book =>
                 <CartContentItem key={book.id} book={book} />,
