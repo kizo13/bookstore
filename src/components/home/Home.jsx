@@ -11,7 +11,11 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>Something..</div>
+      <div className="row main">
+        <div className="column">
+          <div>Something..</div>
+        </div>
+      </div>
     );
   }
 }

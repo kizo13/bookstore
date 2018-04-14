@@ -13,7 +13,7 @@ class CartContent extends React.Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="row main">
         <div className="column">
         {this.props.app.cart && (
           <ul className="cart-items">

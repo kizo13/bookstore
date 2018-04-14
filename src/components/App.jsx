@@ -5,7 +5,7 @@ import { withRouter, Switch, Route } from 'react-router-dom';
 import SearchInput from './search/SearchInput';
 import CartIndicator from './cart/CartIndicator';
 import Home from './home/Home';
-import Cart from './cart/CartContent';
+import CartContent from './cart/CartContent';
 import Book from './books/Book';
 import appActions from '../actions/app.actions';
 import './App.scss';
@@ -47,7 +47,7 @@ class App extends React.Component {
           <Switch>
             <Route exact strict path="/" component={Home}/>
             <Route exact path="/books/:bookid" component={Book}/>
-            <Route exact path="/cart" component={Cart}/>
+            <Route exact path="/cart" component={CartContent}/>
             <Route path="*" component={NoMatch}/>
           </Switch>
         </React.Fragment>
