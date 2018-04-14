@@ -1,0 +1,41 @@
+.cart-item {
+  margin-top: 20px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 10px;
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border: none;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 5px;
+    color: #9b4dca;
+  }
+
+  .author {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .published-date,
+  .publisher,
+  .pagecount {
+    font-size: 12px;
+  }
+
+  .description {
+    margin: 15px 0;
+    text-align: justify;
+  }
+
+  .button {
+    display: block;
+    margin-top: 5px;
+  }
+}
