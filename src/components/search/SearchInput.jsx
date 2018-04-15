@@ -20,7 +20,6 @@ class SearchInput extends React.Component {
           value={this.props.form.query}
           placeholder="Search books..."
           onChange={this.changeQuery.bind(this)}
-          ref={r => this.inputRef = r}
           autoCorrect="off"
           autoCapitalize="off"
           autoComplete="off" />

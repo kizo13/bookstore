@@ -13,7 +13,7 @@ import './App.scss';
 const NoMatch = ({ location }) => (
   <div className="row">
     <div className="column">
-      <h3>No match for <code>{location.pathname}</code></h3>
+      <div className="not-found">Page not found :(</div>
     </div>
   </div>
 );

@@ -20,7 +20,8 @@ body {
 
 .search-book,
 .loader,
-.empty-cart {
+.empty-cart,
+.not-found {
   position: fixed;
   top: 80px;
   right: 0;
@@ -41,6 +42,13 @@ body {
 
 .empty-cart {
   background: #fff svg('emptycart') no-repeat center 50px;
+  background-size: 300px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.not-found {
+  background: #fff svg('notfound') no-repeat center 50px;
   background-size: 300px;
   text-align: center;
   font-size: 32px;

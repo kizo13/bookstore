@@ -31,7 +31,7 @@ class Book extends React.Component {
       <div className="row main">
         <div className="column">
           {this.props.api.books.isLoading ? (
-            <span className="loader"></span>
+            <div className="loader"></div>
           ) : (
             this.props.api.books.data ? (
               <div className="row book-detail">
@@ -40,8 +40,8 @@ class Book extends React.Component {
                 </div>}
                 <div className={classNames('column', { 'column-80': this.props.api.books.data.volumeInfo.imageLinks })}>
                   <h3 className="title">{this.props.api.books.data.volumeInfo.title}</h3>
-                  {this.props.api.books.data.volumeInfo.authors && (<div className="author">by <i>{this.props.api.books.data.volumeInfo.authors.join(', ')}</i></div>)}
-                  <span className="published-date"><i className="fa fa-calendar" aria-hidden="true"></i> <b>Published date:</b> {this.props.api.books.data.volumeInfo.publishedDate}</span>
+                  <div className="author">by <i>{this.props.api.books.data.volumeInfo.authors.join(', ')}</i></div>
+                  {this.props.api.books.data.volumeInfo.publishedDate && <span className="published-date"><i className="fa fa-calendar" aria-hidden="true"></i> <b>Published date:</b> {this.props.api.books.data.volumeInfo.publishedDate}</span>}
                   {this.props.api.books.data.volumeInfo.publisher && <span className="publisher"> | <i className="fa fa-book" aria-hidden="true"></i> <b>Published by:</b> {this.props.api.books.data.volumeInfo.publisher}</span>}
                   {this.props.api.books.data.volumeInfo.printedPageCount && <span className="pagecount"> | <i className="fa fa-file-text-o" aria-hidden="true"></i> {this.props.api.books.data.volumeInfo.printedPageCount} pages</span>}
                   {this.props.api.books.data.volumeInfo.description && <div className="description" dangerouslySetInnerHTML={{__html: this.props.api.books.data.volumeInfo.description}}></div>}
@@ -59,7 +59,7 @@ class Book extends React.Component {
   }
 
   addToCart(book) {
-    const bookData = {
+    const bookDataModel = {
       id: book.id,
       title: book.volumeInfo.title,
       published: book.volumeInfo.publishedDate,
@@ -67,7 +67,7 @@ class Book extends React.Component {
       publisher: book.volumeInfo.publisher,
       pageCount: book.volumeInfo.pageCount
     }
-    this.props.addToCart(bookData);
+    this.props.addToCart(bookDataModel);
   }
 
   removeFromCart(bookId) {
