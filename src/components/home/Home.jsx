@@ -13,22 +13,11 @@ class Home extends React.Component {
     return (
       <div className="row main">
         <div className="column">
-          <div>Something..</div>
+          <div className="search-book">Let's find a book</div>
         </div>
       </div>
     );
   }
 }
-
-// const mapStateToProps = (state) => ({
-//   app: state.app,
-// });
-
-// const mapDispatchToProps = (dispatch: Dispatch<DeskCategoriesProps>) => {
-//   return {
-//     getNovelCategories: () => dispatch(apiActions.getNovelCategories()),
-//     setBackgroundImage: (imageName: string) => dispatch(appActions.setBackgroundImage(imageName)),
-//   };
-// };
 
 export default withRouter(connect()(Home));

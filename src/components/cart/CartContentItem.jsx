@@ -28,10 +28,6 @@ class CartContentItem extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   app: state.app,
-// });
-
 const mapDispatchToProps = (dispatch) => {
   return {
     removeFromCart: (bookId) => dispatch(appActions.removeFromCart(bookId))

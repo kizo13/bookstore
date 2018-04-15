@@ -36,10 +36,4 @@ const mapStateToProps = (state) => ({
   app: state.app,
 });
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getBookById: (bookId) => dispatch(apiActions.getBookById(bookId)),
-//   };
-// };
-
 export default withRouter(connect(mapStateToProps)(CartContent));

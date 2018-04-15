@@ -11,28 +11,7 @@ class SearchResultItem extends React.Component {
 
   render() {
     return (
-        /**
-        this.props.book: [
-          {
-            id: string,
-            volumeInfo: {
-              authors: string[],
-              description: string,
-              imageLinks: {
-                smallThumbnail: string,
-                thumbnail: string
-              },
-              language: string,
-              pageCount: number,
-              publishedDate: string,
-              publisher: string,
-              title: string
-            }
-          }
-        ]
-       */
       <li className="result-item">
-        {/* <img src={this.props.book.volumeInfo.imageLinks.smallThumbnail} height="40" /> */}
         <span className="title">
           <Link to={`/books/${this.props.book.id}`} className="link">{this.props.book.volumeInfo.title}</Link> 
           {this.props.book.volumeInfo.authors && (<span className="author">by <i>{this.props.book.volumeInfo.authors.join(', ')}</i></span>)}
