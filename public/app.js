@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// __webpack_hash__
-/******/ 	__webpack_require__.h = "83a61a9f8656c949d010";
+/******/ 	__webpack_require__.h = "6085258ac5d645ae1c56";
 /******/
 /******/ 	// __webpack_chunkname__
 /******/ 	__webpack_require__.cn = "main";
@@ -36564,7 +36564,7 @@ class SearchResultItem extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] 
           { to: `/books/${this.props.book.id}`, className: 'link' },
           this.props.book.volumeInfo.title
         ),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+        this.props.book.volumeInfo.authors && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
           'span',
           { className: 'author' },
           'by ',
@@ -36573,8 +36573,7 @@ class SearchResultItem extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] 
             null,
             this.props.book.volumeInfo.authors.join(', ')
           )
-        ),
-        ')'
+        )
       ),
       this.props.book.volumeInfo.publishedDate && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
         'span',
@@ -36970,7 +36969,7 @@ class Book extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
               { className: 'title' },
               this.props.api.books.data.volumeInfo.title
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+            this.props.api.books.data.volumeInfo.authors && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
               'div',
               { className: 'author' },
               'by ',

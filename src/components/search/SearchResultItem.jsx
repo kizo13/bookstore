@@ -14,7 +14,7 @@ class SearchResultItem extends React.Component {
       <li className="result-item">
         <span className="title">
           <Link to={`/books/${this.props.book.id}`} className="link">{this.props.book.volumeInfo.title}</Link> 
-          {this.props.book.volumeInfo.authors && <span className="author">by <i>{this.props.book.volumeInfo.authors.join(', ')}</i></span>)}
+          {this.props.book.volumeInfo.authors && <span className="author">by <i>{this.props.book.volumeInfo.authors.join(', ')}</i></span>}
         </span>
         {this.props.book.volumeInfo.publishedDate && <span className="published-date"><i className="fa fa-calendar" aria-hidden="true"></i> <b>Published date:</b> {this.props.book.volumeInfo.publishedDate}</span>}
         {this.props.book.volumeInfo.publisher && <span className="publisher"> | <i className="fa fa-book" aria-hidden="true"></i><b> Published by:</b> {this.props.book.volumeInfo.publisher}</span>}
