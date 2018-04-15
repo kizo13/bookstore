@@ -3,6 +3,8 @@ Live demo: https://lmi-test-bookstore.herokuapp.com/
 
 ## Todo
 Changes needs to be done before app goes live:
+- introduce DB storage
+- REST API
 - introduce CI
 - set up multiple environments (e.g.: dev, qa, prod)
 - introduce environment variables
